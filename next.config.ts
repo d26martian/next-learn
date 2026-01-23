@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Настройки для кастомного документа
+  poweredByHeader: false,
+  generateEtags: true,
+  reactStrictMode: true,
 };
 
 export default nextConfig;
