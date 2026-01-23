@@ -1,22 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Htag } from "@/components"
 
 export default function Home() {
   return (
     <div>
-      
+      <Htag tag="h1">Text</Htag>
     </div>
   );
 }
