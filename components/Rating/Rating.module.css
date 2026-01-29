@@ -1,0 +1,7 @@
+.filled svg {
+  fill: var(--primary);
+}
+
+.editable svg {
+  cursor: pointer;
+}
