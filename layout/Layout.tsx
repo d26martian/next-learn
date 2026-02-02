@@ -1,28 +1,26 @@
 import { Metadata } from "next";
-import React, { ReactNode } from "react";
+import { LayoutProps } from './Layout.props'
+import { Header } from "./Header/Header";
+import { Sidebar } from "./Sidebar/Sidebar";
+import { Footer } from "./Footer/Footer";
 
-export interface RootLayoutProps {
-  children: ReactNode
-}
 
 export const metadata: Metadata = {
   title: 'React App learning',
   description: 'Web site created with Next.js.',
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html>
-      <body>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>News</li>
-          </ul>
-        </nav>
-        {children}
-      </body>
-    </html>
+    <>
+      <Header />
+      <div>
+        <Sidebar />
+        <div>
+          {children}
+        </div>
+      </div>
+      <Footer />
+    </>
   )
 }
