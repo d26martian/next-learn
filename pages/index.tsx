@@ -2,9 +2,9 @@
 import Head from "next/head";
 import { Button, Htag, P, Rating, Tag } from "@/components"
 import { useEffect, useState } from "react";
-import RootLayout from "@/layout/Layout";
+import RootLayout, { withLayout } from "@/layout/Layout";
 
-export default function Home() {
+function Home() {
   const [count, setCount] = useState<number>(0)
   const [rating, setRating] = useState<number>(4)
 
@@ -31,3 +31,5 @@ export default function Home() {
     </RootLayout>
   );
 }
+
+export default withLayout(Home)
