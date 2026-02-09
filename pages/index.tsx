@@ -1,10 +1,35 @@
 'use client'
-import Head from "next/head";
-import { Button, Htag, P, Rating, Tag } from "@/components"
+
+
+import { Metadata } from "next";
+import { withLayout } from "@/layout/Layout";
+import { API } from "@/helpers/api";
+import { MenuItem } from "@/interfaces/menu.interface";
 import { useEffect, useState } from "react";
-import RootLayout, { withLayout } from "@/layout/Layout";
+
+export const metadata: Metadata = {
+  title: 'Home page',
+  description: 'Home',
+}
+
+async function getMenu(firstCategory: number): Promise<MenuItem[]> {
+  const res = await fetch(API.topPage.find, {
+    method: 'POST',
+    body: JSON.stringify({
+      firstCategory
+    }),
+    headers: new Headers({ 'content-type': 'application/json' })
+  })
+
+  return res.json()
+}
 
 function Home() {
+  // try {
+  //   const menu = await getMenu(0)
+  // } catch (e) {
+  //   console.log(e)
+  // }
   const [count, setCount] = useState<number>(0)
   const [rating, setRating] = useState<number>(4)
 
@@ -17,18 +42,9 @@ function Home() {
   })
 
   return (
-    <RootLayout>
-      <div>
-        <Htag tag="h1">{count}</Htag>
-        <Button appearance='primary' arrow="right" onClick={() => setCount(count => count + 1)}>Click</Button>
-        <Button appearance='ghost' arrow="down">Click</Button>
-        <P size="s">Lorem fds fddsfs;dfg</P>
-        <P size="m">Lorem fds fddsfs;dfg</P>
-        <P size="l">Lorem fds fddsfs;dfg</P>
-        <Tag color="red" size="m">testing</Tag>
-        <Rating rating={rating} setRating={setRating} isEditable={true} />
-      </div>
-    </RootLayout>
+    <main>
+      Home Page
+    </main>
   );
 }
 
